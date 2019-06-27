@@ -1,4 +1,14 @@
 {
-    "tasks": [],
-    "operations": {}
+    "tasks": [
+        {
+            "id": null,
+            "timestamp": 1561678233738,
+            "task": "multiplication",
+            "result": -2.656741295210853e+31,
+            "success": true
+        }
+    ],
+    "operations": {
+        "multiplication": "*"
+    }
 }

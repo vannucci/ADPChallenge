@@ -7,13 +7,6 @@ const readline = require('readline').createInterface({
     input: process.stdin,
     output: process.stdout
 })
-const allOperations = {
-    "division": "/",
-    "multiplication": "*",
-    "addition": "+",
-    "subtraction": "-",
-    "remainder": "%"
-}
 
 let mode = "PROD";
 if(process.argv[2] === "training" || process.argv[2] === "t") {
@@ -22,15 +15,23 @@ if(process.argv[2] === "training" || process.argv[2] === "t") {
     mode = "ONESHOT"
 }
 
+const allOperations = {
+    "division": "/",
+    "multiplication": "*",
+    "addition": "+",
+    "subtraction": "-",
+    "remainder": "%"
+}
+
 //This MUST be changed for non
 let getTaskEndpoint = {
     url: "https://interview.adpeai.com/api/v1/get-task",
-    proxy: "http://swgscan.wakefern.com:8080"
+    proxy: ""
 };
 
 let submitTaskEndpoint = {
     url: "https://interview.adpeai.com/api/v1/submit-task",
-    proxy: "http://swgscan.wakefern.com:8080"
+    proxy: ""
 }
 
 //things which could fail, failure to get a response?
@@ -66,8 +67,9 @@ const recordTask = (taskNo,task,result,success,operation,operationKeyword) => ne
             console.log(`Error reading file ${err}`);
             reject(false);
         }
-
+        console.log(data);
         let allTasks = JSON.parse(data);
+        
 
         allTasks.tasks.push({
             "id": taskNo,
@@ -93,8 +95,8 @@ const recordTask = (taskNo,task,result,success,operation,operationKeyword) => ne
     })
 })
 
-function getLastTaskId() {
-    fs.readFile('allTasksDone.json', (err, data) => {
+async function getLastTaskId() {
+    await fs.readFile('allTasksDone.json', (err, data) => {
         if(err) {
             console.log(`Error getting task id ${err}`);
             return -1;
@@ -104,28 +106,40 @@ function getLastTaskId() {
     });
 }
 
-function main(mode) {
-    let currentTaskId = getLastTaskId();
+async function main(mode) {
+    let currentTaskId = 2;
 
-    if(mode === "PROD"){
+    if(mode === "PROD") {
         //run the task runner every minute until interrupt/prescribed time
         getTask()
         .then(res => {
             let newTask = JSON.parse(res);
-            if(!(res.operation in allOperations)) {
-                console.log(`Operation ${res.operation} is not found`)
+            if(!(newTask.operation in allOperations)) {
+                console.log(`Operation ${newTask.operation} is not found`)
                 process.exit()
             }
-            const answer = evaluate(res.left,res.operation,res.right);
-            submitTask(JSON.parse(`{ "id": "${res.id}", "response": ${answer} }`))
+            console.log(`${newTask.operation} is ${allOperations[newTask.operation]}`);
+            console.log(`${newTask.left}${allOperations[newTask.operation]}${newTask.right}`);
+            const answer = eval(`${newTask.left}${allOperations[newTask.operation]}${newTask.right}`);
+
+            submitTask(JSON.parse(`{ "id": "${newTask.id}", "response": ${answer} }`))
                 .then(subRes => {
-                    recordTask(res.id,testOperation,answer,true,testOperation,res.operation)
+                    recordTask(currentTaskId,newTask.operation,answer,true,allOperations[newTask.operation],newTask.operation)
                         .then(recRes => {
                             console.log("Record complete");
+                            currentTaskId+=1;
                         })
-                        .finally()
+                        .catch(err => {
+                            console.log(`Error recording to file ${err}`);
+                            process.exit();
+                        })
+                        .finally(process.exit())
                 })
                 .finally()
+        })
+        .catch(err => {
+            console.log(`Error getTask ${err}`)
+            process.exit();
         })
         .finally(res => {
             return null
