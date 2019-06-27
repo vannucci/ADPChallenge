@@ -1,0 +1,20 @@
+{
+  "name": "ADPQuestion",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "dev":  "node main.js interactive",
+    "prod": "node main.js",
+    "oneshot": "node main.js oneshot",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "debug": "node main.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "moment": "^2.24.0",
+    "request": "^2.88.0"
+  }
+}
