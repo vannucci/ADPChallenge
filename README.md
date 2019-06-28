@@ -2,12 +2,22 @@
 
 ## Installation guide
 1. Clone repo
-2. Run 'npm i'
-3. Create .env file with following fields (proxy is not required, and can be left as ''):
 ```
-    PROXY={url}
+$ git clone https://github.com/vannucci/ADPChallenge.git
+```
+2. Install
+```
+$ npm install
+```
+3. Create `.env` file with following fields (`PROXY` is not required, can be left as an empty string):
+```
+    PROXY=
     GET_URL=https://interview.adpeai.com/api/v1/get-task
     POST_URL=https://interview.adpeai.com/api/v1/submit-task
-    REQUEST_INTERVAL={number}
+    REQUEST_INTERVAL=10
 ```
-4. Run 'npm start' and watch it go! Request interval is the number of seconds it will take to make the first request.
+4. Set `REQUEST_INTERVAL` to the number of seconds between API calls
+5. Start the script
+```
+$ npm start
+```
