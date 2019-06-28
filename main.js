@@ -1,8 +1,5 @@
-//Using this because I'm tired of arguing with my company's proxy
 const request = require('request');
 require('dotenv').config();
-
-const requestInterval = 30; //in seconds
 
 function evaluate(task) {
     switch(task.operation) {
@@ -21,7 +18,6 @@ function evaluate(task) {
     }
 }
 
-//things which could fail, failure to get a response?
 function getTask() {
     return new Promise((resolve, reject) => {
         request({url:process.env.GET_URL, proxy:process.env.PROXY}, (err, res, body) => {
@@ -62,4 +58,5 @@ async function main() {
 
 }
 
-setInterval(main, requestInterval*1000);
+console.log(`Start evaluating, interval: ${requestInterval}...`);
+setInterval(main, process.env.REQUEST_INTERVAL*1000);
