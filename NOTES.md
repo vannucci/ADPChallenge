@@ -1,5 +1,10 @@
 # Notes on solving this problem
 
+## Do To's for Monday
+1. Implement some sort of linting
+1. Write tests, try assertion library first, if not mocha
+1. Try hosting it? Try logging it? But don't include these in the submitted version; fork it and keep adding stuff
+
 ## Future Features
 * Deploy this to AWS/Heroku???
 * Have it generate a view, responsive, which displays all the operations its done

@@ -1,0 +1,13 @@
+{"message":"Start evaluating, interval: 5 s...\n\n","level":"info","service":"user-service"}
+{"message":"Task -> {\"id\":\"5e524dfe-07a2-4794-84e4-741e6bec6203\",\"operation\":\"addition\",\"left\":6677660249792757,\"right\":527146459004269}","level":"info","service":"user-service"}
+{"message":"Status -> 200: Correct","level":"info","service":"user-service"}
+{"message":"Memory used -> 10.95 MB\n","level":"info","service":"user-service"}
+{"message":"Task -> {\"id\":\"eff535bc-a86e-47a2-830c-d7499e7a39e8\",\"operation\":\"division\",\"left\":12337864402421,\"right\":2058629676790781}","level":"info","service":"user-service"}
+{"message":"Status -> 200: Correct","level":"info","service":"user-service"}
+{"message":"Memory used -> 9.51 MB\n","level":"info","service":"user-service"}
+{"message":"Task -> {\"id\":\"b02286f8-a644-498e-8f05-e239f7225d8c\",\"operation\":\"multiplication\",\"left\":-7059322559986135,\"right\":-2163565532204243}","level":"info","service":"user-service"}
+{"message":"Status -> 200: Correct","level":"info","service":"user-service"}
+{"message":"Memory used -> 9.76 MB\n","level":"info","service":"user-service"}
+{"message":"Task -> {\"id\":\"7d8ec786-5fe5-45df-8607-cd60c5ac2075\",\"operation\":\"remainder\",\"left\":3158976122879445,\"right\":5274232285499813}","level":"info","service":"user-service"}
+{"message":"Status -> 200: Correct","level":"info","service":"user-service"}
+{"message":"Memory used -> 9.5 MB\n","level":"info","service":"user-service"}

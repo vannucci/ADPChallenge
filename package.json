@@ -13,5 +13,8 @@
   "dependencies": {
     "dotenv": "^8.0.0",
     "request": "^2.88.0"
+  },
+  "devDependencies": {
+    "winston": "^3.2.1"
   }
 }
