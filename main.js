@@ -1,6 +1,8 @@
 require('dotenv').config();
 const utils = require('./util.js');
 const winston = require('winston');
+const moment = require('moment');
+
 const logger = winston.createLogger({
     level: 'info',
     format: winston.format.json(),
@@ -15,13 +17,16 @@ async function main() {
     answer = await utils.getTask().then(res => {
         const task = JSON.parse(res);
         const calculation = utils.evaluate(task);
-        logger.info(`Task -> ${res}`);
+        console.info(`Task -> ${res}`);
         return({"id":task.id, "result": calculation});
     });
     const { statusCode, body } = await utils.submitTask(answer);
-    logger.info(`Status -> ${statusCode}: ${body}`);
-    logger.info(`Memory used -> ${Math.round(process.memoryUsage().heapUsed / 1024 / 1024 * 100)/100} MB\n`);
+    console.log(`Status -> ${statusCode}: ${body}`);
+    logger.info(
+        `Memory: ${Math.round(process.memoryUsage().heapUsed / 1024 / 1024 * 100)/100} MB\n, 
+        Time: ${moment.now()}`
+    );
 }
 
-logger.info(`Start evaluating, interval: ${process.env.REQUEST_INTERVAL} s...\n\n`);
+console.info(`Start evaluating, interval: ${process.env.REQUEST_INTERVAL} s...\n\n`);
 setInterval(main, process.env.REQUEST_INTERVAL*1000);

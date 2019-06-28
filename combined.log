@@ -30,3 +30,19 @@
 {"message":"Task -> {\"id\":\"8f0dd7fe-d806-4218-af41-b7cdbc3c219a\",\"operation\":\"subtraction\",\"left\":-4522533297158451,\"right\":-7415271883163855}","level":"info","service":"user-service"}
 {"message":"Status -> 200: Correct","level":"info","service":"user-service"}
 {"message":"Memory used -> 8.79 MB\n","level":"info","service":"user-service"}
+{"message":"Start evaluating, interval: 5 s...\n\n","level":"info","service":"user-service"}
+{"message":"Task -> {\"id\":\"9b5efe05-4fa0-4d18-b343-23cfe3d6fbb2\",\"operation\":\"subtraction\",\"left\":5158829791831521,\"right\":1277694959953381}","level":"info","service":"user-service"}
+{"message":"Status -> 200: Correct","level":"info","service":"user-service"}
+{"message":"Memory: 11.03 MB\n, \n        Time: 1561753685675","level":"info","service":"user-service"}
+{"message":"Task -> {\"id\":\"055f3f6f-7c15-468e-b6ed-6e917bdbfded\",\"operation\":\"addition\",\"left\":8183612365524457,\"right\":6098338138376997}","level":"info","service":"user-service"}
+{"message":"Status -> 200: Correct","level":"info","service":"user-service"}
+{"message":"Memory: 8.45 MB\n, \n        Time: 1561753688431","level":"info","service":"user-service"}
+{"message":"Memory: 11 MB\n, \n        Time: 1561753753255","level":"info","service":"user-service"}
+{"message":"Memory: 8.45 MB\n, \n        Time: 1561753757941","level":"info","service":"user-service"}
+{"message":"Memory: 8.64 MB\n, \n        Time: 1561753764249","level":"info","service":"user-service"}
+{"message":"Memory: 8.82 MB\n, \n        Time: 1561753768856","level":"info","service":"user-service"}
+{"message":"Memory: 8.97 MB\n, \n        Time: 1561753772948","level":"info","service":"user-service"}
+{"message":"Memory: 9.12 MB\n, \n        Time: 1561753777828","level":"info","service":"user-service"}
+{"message":"Memory: 8.47 MB\n, \n        Time: 1561753783307","level":"info","service":"user-service"}
+{"message":"Memory: 8.62 MB\n, \n        Time: 1561753788115","level":"info","service":"user-service"}
+{"message":"Memory: 8.77 MB\n, \n        Time: 1561753792926","level":"info","service":"user-service"}
