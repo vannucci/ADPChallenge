@@ -8,7 +8,8 @@ async function main() {
         console.log(`Task -> ${res}`);
         return({"id":task.id, "result": calculation});
     });
-    await utils.submitTask(answer).then(res => console.log(`Status -> ${res.statusCode}: ${res.body}`));
+    const { statusCode, body } = await utils.submitTask(answer);
+    console.log(`Status -> ${statusCode}: ${body}`);
 }
 
 console.log(`Start evaluating, interval: ${process.env.REQUEST_INTERVAL} s...`);
