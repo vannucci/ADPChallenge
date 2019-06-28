@@ -11,3 +11,22 @@
 {"message":"Task -> {\"id\":\"7d8ec786-5fe5-45df-8607-cd60c5ac2075\",\"operation\":\"remainder\",\"left\":3158976122879445,\"right\":5274232285499813}","level":"info","service":"user-service"}
 {"message":"Status -> 200: Correct","level":"info","service":"user-service"}
 {"message":"Memory used -> 9.5 MB\n","level":"info","service":"user-service"}
+{"message":"Start evaluating, interval: 5 s...\n\n","level":"info","service":"user-service"}
+{"message":"Task -> {\"id\":\"12efae91-fd18-4ce4-ac3b-c28a030a9683\",\"operation\":\"addition\",\"left\":-2007721841335395,\"right\":5669705096892153}","level":"info","service":"user-service"}
+{"message":"Status -> 200: Correct","level":"info","service":"user-service"}
+{"message":"Memory used -> 12.08 MB\n","level":"info","service":"user-service"}
+{"message":"Task -> {\"id\":\"0a543a32-0417-4ee1-adb8-00143349dfcf\",\"operation\":\"subtraction\",\"left\":3366154207421901,\"right\":5496253393363453}","level":"info","service":"user-service"}
+{"message":"Status -> 200: Correct","level":"info","service":"user-service"}
+{"message":"Memory used -> 8.14 MB\n","level":"info","service":"user-service"}
+{"message":"Task -> {\"id\":\"e55c820f-241c-4471-af03-580d82de69ad\",\"operation\":\"addition\",\"left\":-7868063851573527,\"right\":-3462049403647143}","level":"info","service":"user-service"}
+{"message":"Status -> 200: Correct","level":"info","service":"user-service"}
+{"message":"Memory used -> 8.32 MB\n","level":"info","service":"user-service"}
+{"message":"Task -> {\"id\":\"208c9ffd-ed0d-499f-bb06-77cba8f73132\",\"operation\":\"subtraction\",\"left\":1451235715621785,\"right\":-5906232522585111}","level":"info","service":"user-service"}
+{"message":"Status -> 200: Correct","level":"info","service":"user-service"}
+{"message":"Memory used -> 8.47 MB\n","level":"info","service":"user-service"}
+{"message":"Task -> {\"id\":\"7468fce8-87c4-499c-bca4-ca9e54928309\",\"operation\":\"addition\",\"left\":-3921916023563807,\"right\":-6162301123945559}","level":"info","service":"user-service"}
+{"message":"Status -> 200: Correct","level":"info","service":"user-service"}
+{"message":"Memory used -> 8.63 MB\n","level":"info","service":"user-service"}
+{"message":"Task -> {\"id\":\"8f0dd7fe-d806-4218-af41-b7cdbc3c219a\",\"operation\":\"subtraction\",\"left\":-4522533297158451,\"right\":-7415271883163855}","level":"info","service":"user-service"}
+{"message":"Status -> 200: Correct","level":"info","service":"user-service"}
+{"message":"Memory used -> 8.79 MB\n","level":"info","service":"user-service"}
