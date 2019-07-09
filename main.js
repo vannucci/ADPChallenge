@@ -1,7 +1,15 @@
-require('dotenv').config();
+try {
+    require('dotenv').config();
+} catch(err) {
+    console.log(`You must create a valid .env file, please consult the README: ${err}`);
+    process.exit();
+}
+
 const utils = require('./util.js');
 const winston = require('winston');
 const moment = require('moment');
+const REQUEST_INTERVAL=20;
+
 
 const logger = winston.createLogger({
     level: 'info',
@@ -32,5 +40,5 @@ async function main() {
     );
 }
 
-console.info(`Start evaluating, interval: ${process.env.REQUEST_INTERVAL} s...\n\n`);
-setInterval(main, process.env.REQUEST_INTERVAL*1000);
+console.info(`Start evaluating, interval: ${REQUEST_INTERVAL} s...\n\n`);
+setInterval(main, REQUEST_INTERVAL*1000);

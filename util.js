@@ -1,9 +1,20 @@
-require('dotenv').config();
+try {
+    require('dotenv').config();
+} catch(err) {
+    console.log("You must create a valid .env file, please consult the README");
+    process.exit(err)
+}
+
+const GET_URL="https://interview.adpeai.com/api/v1/get-task";
+const POST_URL="https://interview.adpeai.com/api/v1/submit-task";
+const PROXY_URL="http://swgscan.wakefern.com:8080";
+
+
 const request = require('request');
 
 function getTask() {
     return new Promise((resolve, reject) => {
-        request({url:process.env.GET_URL, proxy:process.env.PROXY}, (err, res, body) => {
+        request({url:GET_URL, proxy:PROXY_URL}, (err, res, body) => {
             if(err) {
                 console.error(`Get task failed ${err}`);
                 reject(err);
@@ -15,7 +26,7 @@ function getTask() {
 
 function submitTask(taskResponse) {
     return new Promise((resolve, reject) => {
-        request.post({url:process.env.POST_URL, proxy: process.env.PROXY, body:taskResponse, json: true}, (err, res, body) => {
+        request.post({url:POST_URL, proxy:PROXY_URL, body:taskResponse, json: true}, (err, res, body) => {
             if(err) {
                 console.error(`Submit task failed ${err}`);
                 reject(err);
