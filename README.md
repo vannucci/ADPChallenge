@@ -1,15 +1,15 @@
 # ADP Challenge
 
-## Installation guide
+## Quick Start Guide
 1. Clone repo
 ```
 $ git clone https://github.com/vannucci/ADPChallenge.git
 ```
-1. Install
+2. Install
 ```
 $ npm install
 ```
-1. Start the script
+3. Start the script
 ```
 $ npm start
 ```
@@ -29,4 +29,3 @@ $ npm start
 * [Appending to JSON file](https://stackoverflow.com/questions/36093042/* how-do-i-add-to-an-existing-json-file-in-node-js)
 * [Sending JSON in body with RequestJS](https://github.com/request/request/issues/1717)
 * [Getting command line input in Node](https://flaviocopes.com/node-input-from-cli/)
-* Node appears to run out of memory when I run loops over promises. I need to figure out how to liberate memory from promises after it's done... [link](https://www.google.com/search?client=firefox-b-1-d&ei=Bw8VXeiCGLHy5gK2rqeICQ&q=js+running+out+of+memory+while+loop+promises&oq=js+running+out+of+memory+while+loop+promises&gs_l=psy-ab.3...1605.3435..3555...0.0..0.186.1112.2j7......0....1..gws-wiz.......0i71j33i299j33i160.BMitlhdm3kI)
