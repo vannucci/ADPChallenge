@@ -14,6 +14,12 @@ $ npm install
 $ npm start
 ```
 
+## Testing Guide
+1. Run mocha
+```
+$ mocha
+```
+
 ## Resources
 * [Request JS](https://github.com/request/request)
 * [Keyboard interrupt](https://stackoverflow.com/questions/20165605/detecting-ctrlc-in-node-js)

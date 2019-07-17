@@ -15,12 +15,14 @@ const logger = winston.createLogger({
 })
 
 async function main() {
+    let task = null
     answer = await utils.getTask().then(res => {
         try {
-            const task = JSON.parse(res);
+            task = JSON.parse(res);
         } catch(err) {
             return new Error("(Res)ponse is not valid JSON");
         }
+        console.log(task);
         const calculation = utils.evaluate(task);
         console.info(`Task -> ${res}`);
         return({"id":task.id, "result": calculation});

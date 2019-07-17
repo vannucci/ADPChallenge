@@ -1,44 +1,42 @@
 const chai = require('chai');
 const expect = chai.expect;
 chai.use(require('chai-json'))
-var task = null;
+let task = null; //task to be tested
+let taskResult = null; //result of task operation
 
-describe('GetTask', function() {
+describe('Get Task', function() {
     var util = require('../util');
     it('should get a new task', function() {
         return util.getTask()
         .then(res => {
             task = res;
             expect(res).to.not.be.null;
-            expect(res).to.not.a.jsonFile();
         })
     })
 });
 
 describe('Evaluate', () => {
     var util = require('../util')
-    let result = null;
-    it('should evaluate a task', () => {
-        let additionTask = {
-            id:"57cd8daa-7feb-4877-a0cc-d81ead85f060",
-            operation:"addition",
-            left:5503371728089849,
-            right:2285523657884601
-        }
-        let divisionTask = {
-            "id":"290a30fc-662e-4137-9026-3a6e38f847df",
-            "operation":"division",
-            "left":5966823694840305,
-            "right":-7488245207314899
-        }
+    let calcResult = null;
+    it('should parse the task into JSON object', () => {
+        task = JSON.parse(task);
+        expect(task).to.be.a.jsonObj();
+        expect(task.id).to.be.a('string');
+    });
+    it('should evaluate the task and produce a response', () => {
+        calcResult = util.evaluate(task);
+        expect(calcResult).to.not.be.null;
+        taskResult = {"id":task.id, "result": calcResult}
+    })
+});
 
-        result = util.evaluate(additionTask);
-        expect(result).to.equal(7788895385974450);
-        result = util.evaluate(divisionTask);
-        expect(result).to.equal(-0.79682536156957146107877227216415800394980025240968472606);
-        result = util.evaluate(JSON.parse(task));
-        expect(result).to.not.be.null;
-
+describe('Submitting Task Solution', () => {
+    var util = require('../util')
+    it('should submit the answer and respond with status code 200 and body', async () => {
+        const { statusCode, body } = await util.submitTask(taskResult)
+        expect(statusCode).to.not.be.null;
+        expect(statusCode).to.equal(200);
+        expect(body).to.not.be.null;
 
     })
 })
