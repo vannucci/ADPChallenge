@@ -1,10 +1,3 @@
-try {
-    require('dotenv').config();
-} catch(err) {
-    console.log("You must create a valid .env file, please consult the README");
-    process.exit(err)
-}
-
 const GET_URL="https://interview.adpeai.com/api/v1/get-task";
 const POST_URL="https://interview.adpeai.com/api/v1/submit-task";
 const PROXY_URL="http://swgscan.wakefern.com:8080";

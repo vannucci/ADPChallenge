@@ -1,10 +1,3 @@
-try {
-    require('dotenv').config();
-} catch(err) {
-    console.log(`You must create a valid .env file, please consult the README: ${err}`);
-    process.exit();
-}
-
 const utils = require('./util.js');
 const winston = require('winston');
 const moment = require('moment');
