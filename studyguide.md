@@ -30,3 +30,4 @@
 1. Binary Search Trees, add/remove/BFS/DFS
 1. Priority queue, be prepared to answer questions about secondary conditions for tasks which have the same priority (default, FIFO, but possible secondary conditions may apply depending on structure)
 1. Generators are also
+1. How to get middle of a linked list, fastpointer goes forward by 2, slow pointer by 1. When fast pointer is at the end, slow pointer is the middle. That's fucking clever.
