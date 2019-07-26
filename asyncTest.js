@@ -1,3 +1,9 @@
+// https://stackoverflow.com/questions/47279054/difference-between-returning-a-value-and-returning-promise-resolve-from-a-func
+// https://alligator.io/js/async-functions/
+// https://jakearchibald.com/2017/await-vs-return-vs-return-await/
+// https://medium.com/@bluepnume/learn-about-promises-before-you-start-using-async-await-eb148164a9c8
+
+
 const addFunc = function(a,b) {
     return new Promise((resolve,reject) => {
         resolve(a+b);
