@@ -24,3 +24,8 @@ iter.next()
 // for(let i = 1; i < 5; i++) {
 //     iter.next();
 // }
+
+new Promise((resolve, reject) => {
+    console.log('eeeeager');
+    resolve();
+  })

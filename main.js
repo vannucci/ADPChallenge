@@ -1,7 +1,7 @@
 const utils = require('./util.js');
 const winston = require('winston');
 const moment = require('moment');
-const REQUEST_INTERVAL=20;
+const REQUEST_INTERVAL=3;
 
 
 const logger = winston.createLogger({
@@ -16,18 +16,17 @@ const logger = winston.createLogger({
 
 async function main() {
     let task = null
-    answer = await utils.getTask().then(res => {
-        try {
-            task = JSON.parse(res);
-        } catch(err) {
-            return new Error("(Res)ponse is not valid JSON");
-        }
-        console.log(task);
-        const calculation = utils.evaluate(task);
-        console.info(`Task -> ${res}`);
-        return({"id":task.id, "result": calculation});
-    });
-    const { statusCode, body } = await utils.submitTask(answer);
+    let res = null
+    try {
+        res = await utils.getTask();
+    } catch(e) {
+        console.log('Error getting task',e);
+    }
+
+    task = await JSON.parse(res);
+    const calculation = await utils.evaluate(task);
+
+    const { statusCode, body } = await utils.submitTask({"id":task.id, "result": calculation});
     console.log(`Status -> ${statusCode}: ${body}`);
     logger.info(
         `Memory: ${Math.round(process.memoryUsage().heapUsed / 1024 / 1024 * 100)/100} MB\n, 

@@ -3,18 +3,17 @@ const POST_URL="https://interview.adpeai.com/api/v1/submit-task";
 const PROXY_URL="http://swgscan.wakefern.com:8080";
 
 
-const request = require('request');
+const request = require('request-promise');
 
-async function getTask() {
-    await new Promise((resolve, reject) => {
+function getTask() {
+    return new Promise((resolve, reject) => {
         request({url:GET_URL, proxy:PROXY_URL}, (err, res, body) => {
             if(err) {
-                console.error(`Get task failed ${err}`);
-                throw Error(err);
+                reject(err);
             }
-            return(body);
+            resolve(body);
         });
-    });
+    })
 }
 
 function submitTask(taskResponse) {

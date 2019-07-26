@@ -20,6 +20,7 @@
 
 ## Things To Do
 1. Write a simple express API which has a POST endpoint of "Instruction Number". Then set up a generator or async/await call which passes the instruction number and then calls for them on yield. See what order the endpoint actually gets them in.
+1. https://khan4019.github.io/front-end-Interview-Questions/js1.html
 
 ## Things I know So Far
 

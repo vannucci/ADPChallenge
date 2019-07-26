@@ -30,16 +30,11 @@ const PriorityQueue = function(queue = []) {
 PriorityQueue.prototype.addTask = function(task,priority) {
     let newTask = new Task(task,priority);
 
-    if(this.queue.length === 0) {
-        this.queue.push(newTask);
-        return;
-    }
-
     let contains = false;
 
     let counter = 0;
     while(counter < this.queue.length) {
-        if(newTask.priority > this.queue[counter] && !contains) {
+        if(newTask.priority > this.queue[counter].priority && !contains) {
             this.queue.splice(counter,0,newTask);
             contains = true
             break;
@@ -53,45 +48,66 @@ PriorityQueue.prototype.addTask = function(task,priority) {
 
 }
 
-const mergeSortQueue = function(pqueue) {
-    let length = pqueue.queue.length;
+const mergeSort = function(arr) {
+    let length = arr.length;
 
     if(length < 2) {
-        return pqueue;
+        return arr;
     }
 
     let mid = Math.floor(length / 2);
-    let L = new PriorityQueue(pqueue.queue.slice(0,mid));
-    let R = new PriorityQueue(pqueue.queue.slice(mid,length));
+    let L = arr.slice(0,mid);
+    let R = arr.slice(mid,length);
 
-    return merge(mergeSortQueue(L), mergeSortQueue(R));
+    return merge(mergeSort(L), mergeSort(R));
 
 }
 
 const merge = function(left,right) {
-    let result = new PriorityQueue();
+    let result = [];
     
-    while(left.queue.length && right.queue.length) {
-        if(left.queue[0].priority < right.queue[0].priority) {
-            result.queue.push(left.queue.shift());
+    while(left.length && right.length) {
+        if(left[0] < right[0]) {
+            result.push(left.shift());
         } else {
-            result.queue.push(right.queue.shift());
+            result.push(right.shift());
         }
     }
+
+    
+
+    return result.concat(left).concat(right);;
+}
+
+const mergeQueues = function(left,right) {
+    let result = new PriorityQueue();
+    
+    let L = 0;
+    let R = 0;
+
+    while(L < left.queue.length && R < right.queue.length) {
+        console.log(left.queue[L]);
+        result.addTask(left.queue[L].task,left.queue[L].priority);
+        L++;
+        result.addTask(right.queue[R].task,right.queue[R].priority);
+        R++;
+    }
+
     result.queue.concat(left.queue).concat(right.queue);
+
     return result;
 }
+
 
 let count = 15;
 let prquOne = new randPriorityQueue(20,count);
 let prquTwo = new randPriorityQueue(20,count);
 
-console.log(prquOne);
-prquOne = mergeSortQueue(prquOne);
-console.log(prquOne);
+prquCombo = mergeQueues(prquOne,prquTwo);
+console.log(prquCombo);
 
-// let arr = randArr(20,count);
-// console.log('\n','init -> ',arr);
-// console.log('='.repeat(count*5));
-// arr = mergesort(arr);
-// console.log('final -> ',arr);
+let arr = randArr(20,count);
+console.log('\n','init -> ',arr);
+console.log('='.repeat(count*5));
+arr = mergeSort(arr);
+console.log('final -> ',arr);
